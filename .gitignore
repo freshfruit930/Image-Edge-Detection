@@ -7,3 +7,6 @@ bin/
 # ignore ALL files in ANY directory named obj
 obj/
 
+# ignore ALL files in ANY directory named .vs
+.vs/
+
