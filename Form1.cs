@@ -50,13 +50,26 @@ namespace ImageEdgeDetection
                 previewBitmap = originalBitmap.CopyToSquareCanvas(picPreview.Width);
                 picPreview.Image = previewBitmap;
 
-                ApplyFilter(true);
+                FilterBase2D filter = null;
+
+                if (cmbEdgeDetMethod.SelectedItem is FilterBase2D)
+                {
+                    filter = (FilterBase2D)cmbEdgeDetMethod.SelectedItem;
+                }
+
+                ApplyFilter(true, filter);
             }
         }
 
         private void btnSaveResImage_Click(object sender, EventArgs e)
         {
-            ApplyFilter(false); //apply the filter on the original image(preview=false)
+            FilterBase2D filter = null;
+
+            if (cmbEdgeDetMethod.SelectedItem is FilterBase2D)
+            {
+                filter = (FilterBase2D)cmbEdgeDetMethod.SelectedItem;
+            }
+            ApplyFilter(false, filter); //apply the filter on the original image(preview=false)
 
             if (resultBitmap != null)
             {
@@ -89,21 +102,14 @@ namespace ImageEdgeDetection
             }
         }
 
-        private void ApplyFilter(bool preview)
+        public void ApplyFilter(bool preview, FilterBase2D filter)
         {
             if (previewBitmap == null)
             {
                 return;
             }
 
-            FilterBase2D filter = null;
-
-            if (cmbEdgeDetMethod.SelectedItem is FilterBase2D)
-            {
-                filter = (FilterBase2D)cmbEdgeDetMethod.SelectedItem;
-            }
-
-            if (filter.FilterName == "NoFilter")
+           if (filter.FilterName == "NoFilter")
             {
                 picPreview.Image = previewBitmap;
                 resultBitmap = originalBitmap;
@@ -122,7 +128,13 @@ namespace ImageEdgeDetection
 
         private void SelectedFilterIndexChangedEventHandler(object sender, EventArgs e)
         {
-            ApplyFilter(true);
+            FilterBase2D filter = null;
+
+            if (cmbEdgeDetMethod.SelectedItem is FilterBase2D)
+            {
+                filter = (FilterBase2D)cmbEdgeDetMethod.SelectedItem;
+            }
+            ApplyFilter(true, filter);
         }
     }
 }

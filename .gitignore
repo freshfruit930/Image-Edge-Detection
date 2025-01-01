@@ -11,5 +11,4 @@ obj/
 .vs/
 
 # ignore ALL files in ANY directory named .packages
-.packages/
-
+packages/

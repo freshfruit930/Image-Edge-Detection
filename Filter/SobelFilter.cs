@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace ImageEdgeDetection
 {
-    internal class PrewittFilter : FilterBase2D
+    public class SobelFilter : FilterBase2D
     {
         public override string FilterName
         {
-            get { return "PrewittFilter"; }
+            get { return "SobelFilter"; }
         }
 
         private double factor = 1.0;
@@ -25,21 +25,21 @@ namespace ImageEdgeDetection
             get { return bias; }
         }
 
-        //horizontal filter matrix for Prewitt edge detection
+        //horizontal filter matrix for Sobel edge detection
         private double[,] filterMatrixH =
-            new double[,] { { -1, -1, -1, },
+            new double[,] { { -1, -2, -1, },
                             { 0,  0, 0, },
-                            { 1, 1, 1, }, };
+                            { 1, 2, 1, }, };
 
         public override double[,] FilterMatrixH
         {
             get { return filterMatrixH; }
         }
 
-        //vertical filter matrix for Prewitt edge detection
+        //vertical filter matrix for Sobel edge detection
         private double[,] filterMatrixV =
            new double[,] { { -1, 0, 1, },
-                            { -1, 0, 1, },
+                            { -2, 0, 2, },
                             { -1, 0, 1, }, };
 
         public override double[,] FilterMatrixV

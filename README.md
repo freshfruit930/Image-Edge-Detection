@@ -7,7 +7,24 @@ This is the repository for Augmentus coding test assignment
 3. aim to show the result in the predefined picture window, so extend the Bitmap class with a specific copy function that can resize the original image and copy to the picture window
 4. when load the image, limit the image format to *.png, *.bmp and *.jpg
 
-
+# Solution Architecture：
+  Image-Edge-Detection/
+  │
+  ├── Bitmap/
+  │   └── ExtBitmap.cs
+  │
+  ├── Filter/
+  │   ├── FilterBase.cs
+  │   ├── NoFilter.cs
+  │   ├── PrewittFilter.cs
+  │   └── SobelFilter.cs
+  │
+  ├── UnitTest/
+  │   └── UnitTest1.cs
+  │
+  ├── Form1.cs
+  └── Program.cs
+ 
 
 # Run the solution
 1. build the solution
