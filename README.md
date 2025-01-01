@@ -13,12 +13,18 @@ This is the repository for Augmentus coding test assignment
   ├── Bitmap/    
   │   └── ExtBitmap.cs  
   │  
+  ├── Docs/  
+  │   ├── Design.drawio  
+  │   ├── test.png  
+  │   ├── test_easy.png  
+  │   └── test_color.png  
+  │  
   ├── Filter/  
   │   ├── FilterBase.cs  
   │   ├── NoFilter.cs  
   │   ├── PrewittFilter.cs  
   │   └── SobelFilter.cs  
-  │  
+  │   
   ├── UnitTest/  
   │   └── UnitTest1.cs  
   │  
